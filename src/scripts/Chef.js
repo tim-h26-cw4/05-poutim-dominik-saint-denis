@@ -1,3 +1,4 @@
+import Poutine from './Poutine.js';
 export default class Chef {
   constructor(element) {
     console.log('debut class chef');
@@ -7,10 +8,12 @@ export default class Chef {
     this.init();
   }
   init() {
-    const poutines = document.querySelectorAll('[data-component="Poutine"]');
+    const poutines = document.querySelectorAll('.js-poutine');
     for (let i = 0; i < poutines.length; i++) {
-      const poutine = poutines[i];
-      new Poutine(poutine);
+      const instance = poutines[i];
+      new Poutine(instance);
+      this.menu.push(instance);
     }
+    console.log(this.menu);
   }
 }

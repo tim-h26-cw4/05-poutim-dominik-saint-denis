@@ -24,7 +24,10 @@ export default class Chef {
 
   sendOrder() {
     console.log('submit');
-    //this.container.removeChild(p);
+    if (this.container.firstChild) {
+      this.container.removeChild(this.container.firstChild);
+    }
+
     const p = document.createElement('p');
 
     let nbActive = 0;

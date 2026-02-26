@@ -10,8 +10,8 @@ export default class Chef {
   init() {
     const poutines = this.element.querySelectorAll('.js-poutine');
     for (let i = 0; i < poutines.length; i++) {
-      const instance = poutines[i];
-      new Poutine(instance);
+      const poutine = poutines[i];
+      const instance = new Poutine(poutine);
       this.menu.push(instance);
     }
     console.log(this.menu);
@@ -24,5 +24,18 @@ export default class Chef {
 
   sendOrder() {
     console.log('submit');
+    //this.container.removeChild(p);
+    const p = document.createElement('p');
+
+    let nbActive = 0;
+    for (let i = 0; i < this.menu.length; i++) {
+      const poutine = this.menu[i];
+      console.log(poutine);
+      if (poutine.isActive == true) {
+        nbActive += 1;
+      }
+    }
+    p.innerText = `Nombre total de poutine(s) : ${nbActive}`;
+    this.container.appendChild(p);
   }
 }

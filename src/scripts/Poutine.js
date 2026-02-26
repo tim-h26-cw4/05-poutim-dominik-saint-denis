@@ -3,6 +3,7 @@ export default class Poutine {
     this.element = element;
     this.types = this.element.querySelectorAll('.js-type');
     this.selectedType = '';
+    this.isActive = false;
     this.init();
     console.log('instance de poutine');
   }
@@ -23,5 +24,11 @@ export default class Poutine {
     this.updatePhoto();
   }
 
-  updatePhoto() {}
+  updatePhoto() {
+    const image = this.element.querySelector('.js-image');
+    image.classList.add('is-active');
+    this.isActive = true;
+    console.log(this.isActive);
+    image.src = `assets/images/${this.selectedType}.png`;
+  }
 }

@@ -15,5 +15,14 @@ export default class Chef {
       this.menu.push(instance);
     }
     console.log(this.menu);
+    const submit = document.querySelectorAll('.js-submit');
+    for (let i = 0; i < submit.length; i++) {
+      const element = submit[i];
+      element.addEventListener('click', this.sendOrder.bind(this));
+    }
+  }
+
+  sendOrder() {
+    console.log('submit');
   }
 }

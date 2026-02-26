@@ -4,18 +4,18 @@ export default class Chef {
     console.log('debut class chef');
     this.element = element;
     this.menu = [];
-    this.container = document.querySelectorAll('.js-container');
+    this.container = this.element.querySelector('.js-container');
     this.init();
   }
   init() {
-    const poutines = document.querySelectorAll('.js-poutine');
+    const poutines = this.element.querySelectorAll('.js-poutine');
     for (let i = 0; i < poutines.length; i++) {
       const instance = poutines[i];
       new Poutine(instance);
       this.menu.push(instance);
     }
     console.log(this.menu);
-    const submit = document.querySelectorAll('.js-submit');
+    const submit = this.element.querySelectorAll('.js-submit');
     for (let i = 0; i < submit.length; i++) {
       const element = submit[i];
       element.addEventListener('click', this.sendOrder.bind(this));

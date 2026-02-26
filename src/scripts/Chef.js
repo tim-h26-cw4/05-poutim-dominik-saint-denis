@@ -4,7 +4,7 @@ export default class Chef {
     console.log('debut class chef');
     this.element = element;
     this.menu = [];
-    this.container = '';
+    this.container = document.querySelectorAll('.js-container');
     this.init();
   }
   init() {
